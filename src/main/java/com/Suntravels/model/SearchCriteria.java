@@ -6,17 +6,17 @@ import java.util.List;
 public class SearchCriteria
 {
     private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+    private Integer noOfNights;
     private List<Room> rooms;
 
     public SearchCriteria()
     {
     }
 
-    public SearchCriteria( LocalDate checkInDate, LocalDate chekcOutDate, List<Room> rooms )
+    public SearchCriteria( LocalDate checkInDate, Integer noOfNights, List<Room> rooms )
     {
         this.checkInDate = checkInDate;
-        this.checkOutDate = chekcOutDate;
+        this.noOfNights = noOfNights;
         this.rooms = rooms;
     }
 
@@ -30,15 +30,6 @@ public class SearchCriteria
         this.checkInDate = checkInDate;
     }
 
-    public LocalDate getCheckOutDate()
-    {
-        return checkOutDate;
-    }
-
-    public void setChekcOutDate( LocalDate chekcOutDate )
-    {
-        this.checkOutDate = chekcOutDate;
-    }
 
     public List<Room> getRooms()
     {
@@ -50,12 +41,22 @@ public class SearchCriteria
         this.rooms = rooms;
     }
 
+    public Integer getNoOfNights()
+    {
+        return noOfNights;
+    }
+
+    public void setNoOfNights( Integer noOfNights )
+    {
+        this.noOfNights = noOfNights;
+    }
+
     @Override
     public String toString()
     {
         return "SearchCriteria{" +
                        "checkInDate=" + checkInDate +
-                       ", chekcOutDate=" + checkOutDate +
+                       ", noOfNights=" + noOfNights +
                        ", rooms=" + rooms +
                        '}';
     }

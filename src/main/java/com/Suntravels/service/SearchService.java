@@ -28,8 +28,9 @@ public class SearchService
         this.contractRepo = contractRepo;
     }
 
-    public List<SearchResult> searchAvailability( LocalDate checkInDate, LocalDate checkOutDate, List<Room> rooms )
+    public List<SearchResult> searchAvailability( LocalDate checkInDate, Integer noOfNights, List<Room> rooms )
     {
+        LocalDate checkOutDate = checkInDate.plusDays( noOfNights );
         List<SearchResult> searchResults = new ArrayList<>();
         boolean isAvailable = false;
         List<Hotel> hotels = hotelRepo.findAll();
@@ -47,6 +48,7 @@ public class SearchService
                             ( contract.getEndingDate().isAfter( checkOutDate ) ) )
                 {
                     List<RoomType> roomTypes = contract.getRoomTypes();
+                    Integer markupValue = 100 + contract.getMarkupValue();
                     for( RoomType roomType : roomTypes )
                     {
                         RoomDetail roomDetail = new RoomDetail();
@@ -61,10 +63,11 @@ public class SearchService
                                 break;
                             }
                         }
+
                         if( roomDetail.getAvailability() )
                         {
                             isAvailable = true;
-                            roomDetail.setPricePerOnePerson( roomType.getPricePerOnePerson() * 115 / 100 );
+                            roomDetail.setPricePerOnePerson( roomType.getPricePerOnePerson() * markupValue / 100 * noOfNights);
                         }
                         roomDetails.add( roomDetail );
                     }

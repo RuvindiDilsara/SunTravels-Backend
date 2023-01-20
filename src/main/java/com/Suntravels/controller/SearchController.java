@@ -42,7 +42,7 @@ public class SearchController
         List<SearchResult> searchResults = service.searchAvailability(
 
                 searchCriteria.getCheckInDate(),
-                searchCriteria.getCheckOutDate(),
+                searchCriteria.getNoOfNights(),
                 searchCriteria.getRooms());
 
         return new ResponseEntity<>(searchResults, HttpStatus.OK );

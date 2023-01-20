@@ -33,6 +33,8 @@ public class Contract
     private LocalDate startingDate;
     private LocalDate endingDate;
 
+    private Integer markupValue;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name= "contract_id")
     private List<RoomType> roomTypes;
@@ -41,12 +43,14 @@ public class Contract
     {
     }
 
-    public Contract( String hotelName, LocalDate startingDate, LocalDate endingDate, List<RoomType> roomTypes )
+    public Contract( String hotelName, LocalDate startingDate, LocalDate endingDate, List<RoomType> roomTypes,
+                     Integer markupValue)
     {
         this.hotelName = hotelName;
         this.startingDate = startingDate;
         this.endingDate = endingDate;
         this.roomTypes = roomTypes;
+        this.markupValue = markupValue;
     }
 
     public Contract( Long contractId, String hotelName, LocalDate startingDate, LocalDate endingDate, List<RoomType> roomTypes )
@@ -113,6 +117,16 @@ public class Contract
         this.hotelName = hotelName;
     }
 
+    public Integer getMarkupValue()
+    {
+        return markupValue;
+    }
+
+    public void setMarkupValue( Integer markupValue )
+    {
+        this.markupValue = markupValue;
+    }
+
     @Override
     public String toString()
     {
@@ -121,6 +135,7 @@ public class Contract
                        ", hotelName='" + hotelName + '\'' +
                        ", startingDate=" + startingDate +
                        ", endingDate=" + endingDate +
+                       ", markupValue=" + markupValue +
                        ", roomTypes=" + roomTypes +
                        '}';
     }
