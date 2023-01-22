@@ -14,15 +14,13 @@ import java.util.Optional;
 public class ContractService
 {
     private final ContractRepo contractRepo;
-    private final HotelRepo hotelRepo;
+
 
 
     @Autowired
-    public ContractService( ContractRepo contractRepo,
-                            HotelRepo hotelRepo)
+    public ContractService( ContractRepo contractRepo)
     {
         this.contractRepo = contractRepo;
-        this.hotelRepo = hotelRepo;
     }
 
     public Contract addContract(Contract contract){

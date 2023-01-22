@@ -53,6 +53,18 @@ public class Contract
         this.markupValue = markupValue;
     }
 
+    public Contract( String hotelName, Integer markupValue )
+    {
+        this.hotelName = hotelName;
+        this.markupValue = markupValue;
+    }
+
+    public Contract( Long contractId, String hotelName )
+    {
+        this.contractId = contractId;
+        this.hotelName = hotelName;
+    }
+
     public Contract( Long contractId, String hotelName, LocalDate startingDate, LocalDate endingDate, List<RoomType> roomTypes )
     {
         this.contractId = contractId;

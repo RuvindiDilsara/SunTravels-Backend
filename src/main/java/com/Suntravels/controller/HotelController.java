@@ -50,15 +50,15 @@ public class HotelController
         return new ResponseEntity<>( newHotel, HttpStatus.CREATED );
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Hotel> updateHotel( @RequestBody Hotel hotel ){
-        Hotel updateHotel = hotelService.updateHotel( hotel );
-        return new ResponseEntity<>( updateHotel, HttpStatus.OK );
-    }
-
-    @DeleteMapping("/delete/{hotelId}")
-    public ResponseEntity<?> deleteHotel( @PathVariable("hotelId") Long hotelId ){
-        hotelService.deleteHotel( hotelId );
-        return new ResponseEntity<>( HttpStatus.OK );
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Hotel> updateHotel( @RequestBody Hotel hotel ){
+//        Hotel updateHotel = hotelService.updateHotel( hotel );
+//        return new ResponseEntity<>( updateHotel, HttpStatus.OK );
+//    }
+//
+//    @DeleteMapping("/delete/{hotelId}")
+//    public ResponseEntity<?> deleteHotel( @PathVariable("hotelId") Long hotelId ){
+//        hotelService.deleteHotel( hotelId );
+//        return new ResponseEntity<>( HttpStatus.OK );
+//    }
 }

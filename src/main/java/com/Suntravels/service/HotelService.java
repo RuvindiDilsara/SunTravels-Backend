@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class HotelService
 {
@@ -21,6 +20,10 @@ public class HotelService
     }
 
     public Hotel addHotel( Hotel hotel){
+        Hotel existingHotel = hotelRepo.findByHotelName( hotel.getHotelName() );
+        if(existingHotel != null){
+            throw new IllegalStateException("Hotel is already exists!");
+        }
         return hotelRepo.save(hotel);
     }
 
@@ -28,22 +31,9 @@ public class HotelService
         return hotelRepo.findAll();
     }
 
-    @Transactional
-    public Hotel updateHotel(Hotel hotel){
-        return hotelRepo.save( hotel );
-    }
-
     public Hotel findHotelById(Long hotelId){
         return hotelRepo.findById(hotelId)
                         .orElseThrow(()-> new hotelNotFoundExeption("hotel id "+hotelId+" was not found"));
-    }
-
-    public void deleteHotel(Long hotelId){
-        boolean exists = hotelRepo.existsById( hotelId );
-        if(!exists){
-            throw new hotelNotFoundExeption("hotel id "+hotelId+" was not found");
-        }
-        hotelRepo.deleteById( hotelId );
     }
 
 }
