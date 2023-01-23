@@ -4,13 +4,13 @@ public class RoomDetail
 {
     private String roomTypeName;
     private boolean availability;
-    private Integer pricePerOnePerson;
+    private double pricePerOnePerson;
 
     public RoomDetail()
     {
     }
 
-    public RoomDetail( String roomTypeName, boolean availability, Integer pricePerOnePerson )
+    public RoomDetail( String roomTypeName, boolean availability, double pricePerOnePerson )
     {
         this.roomTypeName = roomTypeName;
         this.availability = availability;
@@ -37,12 +37,12 @@ public class RoomDetail
         this.availability = availability;
     }
 
-    public Integer getPricePerOnePerson()
+    public double getPricePerOnePerson()
     {
         return pricePerOnePerson;
     }
 
-    public void setPricePerOnePerson( Integer pricePerOnePerson )
+    public void setPricePerOnePerson( double pricePerOnePerson )
     {
         this.pricePerOnePerson = pricePerOnePerson;
     }

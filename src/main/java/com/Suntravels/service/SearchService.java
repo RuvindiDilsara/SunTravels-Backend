@@ -48,7 +48,7 @@ public class SearchService
                             ( contract.getEndingDate().isAfter( checkOutDate ) ) )
                 {
                     List<RoomType> roomTypes = contract.getRoomTypes();
-                    Integer markupValue = 100 + contract.getMarkupValue();
+                    Double markupValue = 100 + contract.getMarkupValue();
                     for( RoomType roomType : roomTypes )
                     {
                         RoomDetail roomDetail = new RoomDetail();

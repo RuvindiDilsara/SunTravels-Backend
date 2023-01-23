@@ -31,7 +31,7 @@ class ContractServiceTest
     void addContract()
     {
         //given
-        Contract contract = new Contract("Galadari", 23);
+        Contract contract = new Contract("Galadari", 23.0 );
         //when
         underTest.addContract( contract );
         //then
@@ -56,7 +56,7 @@ class ContractServiceTest
     void findContractById()
     {
         //give
-        Contract contract = new Contract("Galadari", 12);
+        Contract contract = new Contract("Galadari", 12.0 );
         underTest.addContract( contract );
         //when
         Contract receivedContract = underTest.findContractById( 1L );

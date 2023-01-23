@@ -28,7 +28,7 @@ class ContractRepoTest
         Integer markupValue = 23;
         String hotelName = "Galadari";
 
-        Contract contract = new Contract("Hotel Riu Sri Lanka", 12);
+        Contract contract = new Contract("Hotel Riu Sri Lanka", 12.0 );
         underTest.save( contract );
         //when
         List<Contract> contracts = underTest.findByHotelName( hotelName );
